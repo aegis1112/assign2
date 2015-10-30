@@ -91,7 +91,7 @@ void draw() {
     ;tx=(int)random(600);ty=(int)random(430);
   }
   if (ex <=fx && ey<=fy-20) {
-    enemyy +=4;
+    ey +=4;
   } 
   if (ex <=fx && ey>=fy+60) {
     ey -=3;
