@@ -1,9 +1,7 @@
 /* please implement your assign1 code in this file. */
 PImage backGround1,start2,start1,backGround2,fighter,treasure,enemy,hp,end1,end2;
-int backGround1x=0,backGround2x=640,treasurex=(int)random(630),treasurey=(int)random(430),enemyx=0,enemyy=(int)random(430),k=40,playA=0;
-float fighterx=580;
-float fightery=220;
-float speed = 5;
+int bg1x=0,bg2x=640,tx=(int)random(630),ty=(int)random(430),ex=0,ey=(int)random(430),k=40,playA=0;
+float fx=580; float fy=220; float spd = 5;
 
 boolean upPressed = false;
 boolean downPressed = false;
@@ -39,64 +37,64 @@ void draw() {
   }
   switch(playA){
   case 2:
-  if (k==-100) {k=40;fighterx=580;fightery=220;treasurey=(int)random(430);treasurex=(int)random(630);
+  if (k==-100) {k=40;fx=580;fy=220;ty=(int)random(430);tx=(int)random(630);
     
    }
   if(playA==2){
   background(0);
-  image(backGround1,backGround1x-640,0);
-  image(backGround2,backGround2x-640,0);
-  image(fighter,fighterx,fightery);
-  image(treasure,treasurex,treasurey);
-  image(enemy,enemyx,enemyy);
+  image(backGround1,bg1x-640,0);
+  image(backGround2,bg2x-640,0);
+  image(fighter,fx,fy);
+  image(treasure,tx,ty);
+  image(enemy,ex,ey);
   image(hp,40,40);
   fill(255,0,0,75);
   rect(45,45,k,20,100);
-  backGround1x%=1280;backGround2x%=1280;
-  enemyx+=3;enemyx%=640;
-  backGround1x+=1;
-  backGround2x+=1;
+  bg1x%=1280;bg2x%=1280;
+  ex+=3;ex%=640;
+  bg1x+=1;
+  bg2x+=1;
   if (upPressed) {
-    fightery -= speed;
+    fy -= spd;
   }
   if (downPressed) {
-    fightery += speed;
+    fy += speed;
   }
   if (leftPressed) {
-    fighterx -= speed;
+    fx -= spd;
   }
   if (rightPressed) {
-    fighterx += speed;
+    fx += spd;
   }
-  if (fighterx >=580) {
-    fighterx -=speed;
+  if (fx >=580) {
+    fx -=spd;
   }
-  if (fighterx <=0) {
-    fighterx +=speed;
+  if (fx <=0) {
+    fx +=spd;
   }
-  if (fightery <=0) {
-    fightery +=speed;
+  if (fy <=0) {
+    fy +=spd;
   }
-   if (fightery >=430) {
-    fightery -=speed;
+   if (fy >=430) {
+    fy -=spd;
   }
-  if (enemyx ==0) {
-    enemyy=(int)random(430);
+  if (ex ==0) {
+    ey=(int)random(430);
   }
-  if (enemyx+10 >=fighterx-5 && enemyy+10>=fightery-20  && enemyy+10<=fightery+60 && enemyx+10 <=fighterx+60) {
-    k-=40;enemyx=0;enemyy=(int)random(430);
+  if (ex+10 >=fx-5 && ey+10>=fy-20  && ey+10<=fy+60 && ex+10 <=fx+60) {
+    k-=40;ex=0;ey=(int)random(430);
   }
-    if (treasurex >=fighterx-5 && treasurey>=fightery-10  && treasurey<=fightery+60 && treasurex <=fighterx+60 && k<200) {
-    k+=20;treasurex=(int)random(600);treasurey=(int)random(430);
+    if (tx >=fx-5 && ty>=fy-10  && ty<=fy+60 && tx <=fx+60 && k<200) {
+    k+=20;tx=(int)random(600);ty=(int)random(430);
   }
-  if (treasurex >=fighterx-5 && treasurey>=fightery-10  && treasurey<=fightery+60 && treasurex <=fighterx+60 ) {
-    ;treasurex=(int)random(600);treasurey=(int)random(430);
+  if (tx >=fx-5 && ty>=fy-10  && ty<=fy+60 && tx <=fx+60 ) {
+    ;tx=(int)random(600);ty=(int)random(430);
   }
-  if (enemyx <=fighterx && enemyy<=fightery-20) {
+  if (ex <=fx && ey<=fy-20) {
     enemyy +=4;
   } 
-  if (enemyx <=fighterx && enemyy>=fightery+60) {
-    enemyy -=3;
+  if (ex <=fx && ey>=fy+60) {
+    ey -=3;
   }
   if (k<=0) {k=-100;
     playA=1;
